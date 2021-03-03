@@ -1,10 +1,7 @@
 /**
  * Sample React Native App with Drawer, Toolbar and Navigator
  *
- * This is the second example screen with detail button
- * to show a detail view with its own toolbar.
- *
- * @author Johan Gustafsson <johan.gustafsson@solidio.se>
+ * @author Osmar Merlos
  */
 'use strict';
 
@@ -19,9 +16,6 @@ var {
 
 var MenuItemExampleTwoWithDetailButton = React.createClass({
 
-	/**
-	 * Function that shows the detail screen.
-	 */
 	_showDetailScreen: function () {
 		this.props.redirect('detailView', 'push');
 	},

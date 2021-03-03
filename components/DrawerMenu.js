@@ -1,9 +1,8 @@
 /**
  * Sample React Native App with Drawer, Toolbar and Navigator
  *
- * This is the Drawer menu component.
  *
- * @author Johan Gustafsson <johan.gustafsson@solidio.se>
+ * @author Osmar Merlos
  */
 'use strict';
 
@@ -22,34 +21,24 @@ var {
 
 var DrawerMenu = React.createClass({
 
-    /**
-     * Set default menu item as active
-     */
 	getInitialState: function() {
 		return {
 			screenIndex: 0
 		};
 	},
 
-    /**
-     * Handle menu item press callback
-     * from menu item
-     *
-     * @param {[type]} position [position of menu item]
-     */
+
 	_handlePress: function(position) {
-        // Set new active
+
 		this.setState({
 			screenIndex: position 
 		});
 
-        // Change screen
 		this.props.onSelect(position, 'replace');
 	},
 
 	render: function() {
 
-		// Render menu items
 		var items = this.props.menuItems.map(function (item) {
 					return <DrawerMenuItem 
 								title={item.title}

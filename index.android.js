@@ -1,20 +1,17 @@
 /**
  * Sample React Native App with Drawer, Toolbar and Navigator
  *
- * This is the second main index file.
  *
- * @author Johan Gustafsson <johan.gustafsson@solidio.se>
+ * @author Osmar Merlos 
  */
 'use strict';
 
 var React       = require('react-native');
 var Icon        = require('react-native-vector-icons/FontAwesome');
 
-// DrawerLayout components
 var Drawer      = require('react-native-drawer');
 var DrawerMenu  = require('./components/DrawerMenu');
 
-// Example components
 var MenuItemExampleOne                  = require('./components/MenuItemExampleOne');
 var MenuItemExampleTwoWithDetailButton  = require('./components/MenuItemExampleTwoWithDetailButton');
 var DetailViewExample  = require('./components/DetailViewExample');
@@ -28,12 +25,6 @@ var {
     ToolbarAndroid,
 } = React;
 
-/**
- * Drawer menu items.
- * 
- * You can add all screens info 
- * here if you want.
- */
 var MENU_ITEMS = [{
     'title': 'Example screen one',
     'icon': 'mobile',
@@ -44,24 +35,13 @@ var MENU_ITEMS = [{
     'position': 1
 }];
 
-/**
- * Toolbar button for opening drawer menu.
- *
- * @todo [Sets the open drawer toolbar button as
- *       as action because the button gets hard
- *       to press when using the navIcon. 
- *       Maybe the drawer has an overlay or something.]
- * 
- */
 var toolbarMenu = [
     {title: 'Menu', icon: require('./images/fa-bars.png'), show: 'always'}
 ];
 
 var App = React.createClass({
 
-    /**
-     * Set default screen
-     */
+
     getInitialState: function() {
         return {
             title: MENU_ITEMS[0].title,
@@ -69,29 +49,17 @@ var App = React.createClass({
         };
     },
 
-    /**
-     * Function that shows a new screen by changing
-     * the navigator
-     *
-     * @param {[type]} position [screen position]
-     * @param {[type]} action   [navigator action]
-     */
     _showNewScreen: function(position, action) {
 
-        // Set title in main toolbar
         var title = '';
         try {
             title = MENU_ITEMS[position].title;
         } catch (err) {
-            // No title, the new screen component
-            // has an own toolbar with a title
+
         }
 
         this._closeDrawer();
 
-        /**
-         * Change screen in navigator.
-         */
         switch (action) {
             case 'push':
                 this._navigator.push({id: position, title: title});
@@ -105,11 +73,6 @@ var App = React.createClass({
         }
     },
 
-    /**
-     * Function that sets a reference to the navigator.
-     *
-     * @param {[type]} navigator [navigator]
-     */
     _setNavigatorRef: function(navigator) {
         if (navigator !== this._navigator) {
             this._navigator = navigator;
@@ -125,7 +88,6 @@ var App = React.createClass({
                         }
                     );*/
                 };
-                // Observe focus change events from the owner.
                 this._listeners = [
                     navigator.navigationContext.addListener('willfocus', callback),
                     navigator.navigationContext.addListener('didfocus', callback),
@@ -134,19 +96,8 @@ var App = React.createClass({
         }
     },
 
-    /**
-     * Function that renders a new scene.
-     * 
-     * All screens are listed here as components 
-     * and the position in the _showNewScreen() 
-     * is mapped to the screen.
-     *
-     * @param {[type]} route [route]
-     * @param {[type]} nav   [navigator]
-     */
     _renderScene: function(route, nav) {
 
-        // Main toolbar
         var toolBars = [];
         toolBars.push(
             <View style={styles.toolbarWrapper}>
@@ -160,7 +111,6 @@ var App = React.createClass({
 
         switch (route.id) {
             case 0:
-                // First example screen
                 return (
                     <View style={styles.container}>
                         {toolBars[0]}
@@ -170,9 +120,6 @@ var App = React.createClass({
                     </View>
                 );
             case 1:
-                // Second example screen with button
-                // to show a detail view with its on
-                // toolbar
                 return (
                     <View style={styles.container}>
                         {toolBars[0]}
@@ -182,9 +129,6 @@ var App = React.createClass({
                     </View>
                 );
             case 'detailView':
-                // Second example screen with button
-                // to show a detail view with its on
-                // toolbar
                 return (
                     <View style={styles.container}>
                         <DetailViewExample 
@@ -193,7 +137,6 @@ var App = React.createClass({
                     </View>
                 );
             default:
-                // Show first as default
                 return (
                     <View style={styles.container}>
                         {toolBars[0]}
@@ -205,24 +148,14 @@ var App = React.createClass({
         }
     },
 
-    /**
-     * Function that closes the current screen
-     * and shows the screen before in the queue.
-     */
     _goBack: function () {
         this._navigator.pop();
     },
 
-    /**
-     * Function that opens the drawer
-     */
     _openDrawer: function() {
         this.refs.drawer.open();
     },
 
-    /**
-     * Function that closes the drawer
-     */
     _closeDrawer: function() {
         this.refs.drawer.close();
     },
@@ -255,7 +188,7 @@ var App = React.createClass({
                 })}
                 >
                 <Navigator
-                    ref={this._setNavigatorRef}                         // Control pushes manually
+                    ref={this._setNavigatorRef}                        
                     initialRoute={
                         {
                             id: this.state.position, 
@@ -268,7 +201,7 @@ var App = React.createClass({
                         }
                         return Navigator.SceneConfigs.FloatFromBottom;
                     }}
-                    renderScene={this._renderScene}                      // Control routes manually
+                    renderScene={this._renderScene}                    
                  /> 
             </Drawer>  
         );

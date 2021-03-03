@@ -1,9 +1,8 @@
 /**
  * Sample React Native App with Drawer, Toolbar and Navigator
  *
- * This is the detail example screen with with its own toolbar.
  *
- * @author Johan Gustafsson <johan.gustafsson@solidio.se>
+ * @author Osmar Merlos
  */
 'use strict';
 
@@ -16,32 +15,20 @@ var {
     ToolbarAndroid,
 } = React;
 
-// Toolbar back button action
 var toolbarBackButton = [
     {title: 'Back', show: 'always'}
 ];
 
 var DetailViewExample = React.createClass({
 
-	/**
-	 * You can also pass the title from 
-	 * the parent.
-	 */
 	getInitialState: function() {
 		return {
 			title: 'Detail view screen'
 		};
 	},
 
-	/**
-	 * Function that handles toolbar
-	 * button press.
-	 *
-	 * @param {[type]} position [position of action]
-	 */
 	_handleToolbarBtnPress: function (position) {
 		if (position === 0) {
-			// Go back
 			this.props.goBack();
 		}
 	},

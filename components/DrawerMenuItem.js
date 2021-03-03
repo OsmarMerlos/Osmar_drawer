@@ -1,9 +1,8 @@
 /**
  * Sample React Native App with Drawer, Toolbar and Navigator
  *
- * This is the Drawer menu item component.
  *
- * @author Johan Gustafsson <johan.gustafsson@solidio.se>
+ * @author Osmar Merlos
  */
 'use strict';
 
@@ -20,16 +19,12 @@ var {
 
 var DrawerMenuItem = React.createClass({
 
-	/**
-	 * Handle menu item press
-	 */
 	_handlePress: function() {
 		this.props.onSelect(this.props.position);
 	},
 
 	render: function() {
 
-		// Set menu item as active or not active
 		var menuColor = this.props.position == this.props.active ? "#E91E63" : "#737373";
 		var menuColorStyle = {
 			color: menuColor,

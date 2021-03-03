@@ -9,7 +9,7 @@
     "react-native-drawer": "^1.10.2",
     "react-native-vector-icons": "^1.0.4"
   },
-  "description": "A react native example for Android that uses Drawermenu, Toolbar and the navigator",
+  "description": "A react native Drawer",
   "main": "index.android.js",
   "devDependencies": {},
   "keywords": [
@@ -18,7 +18,5 @@
     "drawer",
     "toolbar",
     "navigator"
-  ],
-  "author": "Johan Gustafsson <johan.gustafsson@solidio.se> (http://solidio.se)",
-  "license": "ISC"
+  ]
 }

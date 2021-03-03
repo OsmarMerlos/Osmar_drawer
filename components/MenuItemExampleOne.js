@@ -1,9 +1,8 @@
 /**
  * Sample React Native App with Drawer, Toolbar and Navigator
  *
- * This is the first example screen.
  *
- * @author Johan Gustafsson <johan.gustafsson@solidio.se>
+ * @author Osmar Merlos
  */
 'use strict';
 
