@@ -6,7 +6,7 @@
 
 # Some modules have their own node_modules with overlap
 .*/node_modules/node-haste/.*
-
+·*
 # Ugh
 .*/node_modules/babel.*
 .*/node_modules/babylon.*
